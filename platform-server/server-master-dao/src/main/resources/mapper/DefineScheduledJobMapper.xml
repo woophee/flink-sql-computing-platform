@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.woophee.platform.server.master.dao.mapper.DefineScheduledJobMapper">
+  <resultMap id="BaseResultMap" type="com.woophee.platform.server.master.dao.model.DefineScheduledJob">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="group_id" jdbcType="INTEGER" property="groupId" />
+    <result column="sql_text" jdbcType="VARCHAR" property="sqlText" />
+    <result column="parallelism" jdbcType="INTEGER" property="parallelism" />
+    <result column="scheduled_rule" jdbcType="VARCHAR" property="scheduledRule" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, name, group_id, sql_text, parallelism, scheduled_rule
+  </sql>
+  <select id="selectByExample" parameterType="com.woophee.platform.server.master.dao.model.DefineScheduledJobExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from define_scheduled_job
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from define_scheduled_job
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from define_scheduled_job
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.woophee.platform.server.master.dao.model.DefineScheduledJobExample">
+    delete from define_scheduled_job
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.woophee.platform.server.master.dao.model.DefineScheduledJob">
+    insert into define_scheduled_job (id, name, group_id, 
+      sql_text, parallelism, scheduled_rule
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{groupId,jdbcType=INTEGER}, 
+      #{sqlText,jdbcType=VARCHAR}, #{parallelism,jdbcType=INTEGER}, #{scheduledRule,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.woophee.platform.server.master.dao.model.DefineScheduledJob">
+    insert into define_scheduled_job
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="groupId != null">
+        group_id,
+      </if>
+      <if test="sqlText != null">
+        sql_text,
+      </if>
+      <if test="parallelism != null">
+        parallelism,
+      </if>
+      <if test="scheduledRule != null">
+        scheduled_rule,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="groupId != null">
+        #{groupId,jdbcType=INTEGER},
+      </if>
+      <if test="sqlText != null">
+        #{sqlText,jdbcType=VARCHAR},
+      </if>
+      <if test="parallelism != null">
+        #{parallelism,jdbcType=INTEGER},
+      </if>
+      <if test="scheduledRule != null">
+        #{scheduledRule,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.woophee.platform.server.master.dao.model.DefineScheduledJobExample" resultType="java.lang.Long">
+    select count(*) from define_scheduled_job
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update define_scheduled_job
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.name != null">
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.groupId != null">
+        group_id = #{record.groupId,jdbcType=INTEGER},
+      </if>
+      <if test="record.sqlText != null">
+        sql_text = #{record.sqlText,jdbcType=VARCHAR},
+      </if>
+      <if test="record.parallelism != null">
+        parallelism = #{record.parallelism,jdbcType=INTEGER},
+      </if>
+      <if test="record.scheduledRule != null">
+        scheduled_rule = #{record.scheduledRule,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update define_scheduled_job
+    set id = #{record.id,jdbcType=INTEGER},
+      name = #{record.name,jdbcType=VARCHAR},
+      group_id = #{record.groupId,jdbcType=INTEGER},
+      sql_text = #{record.sqlText,jdbcType=VARCHAR},
+      parallelism = #{record.parallelism,jdbcType=INTEGER},
+      scheduled_rule = #{record.scheduledRule,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.woophee.platform.server.master.dao.model.DefineScheduledJob">
+    update define_scheduled_job
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="groupId != null">
+        group_id = #{groupId,jdbcType=INTEGER},
+      </if>
+      <if test="sqlText != null">
+        sql_text = #{sqlText,jdbcType=VARCHAR},
+      </if>
+      <if test="parallelism != null">
+        parallelism = #{parallelism,jdbcType=INTEGER},
+      </if>
+      <if test="scheduledRule != null">
+        scheduled_rule = #{scheduledRule,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.woophee.platform.server.master.dao.model.DefineScheduledJob">
+    update define_scheduled_job
+    set name = #{name,jdbcType=VARCHAR},
+      group_id = #{groupId,jdbcType=INTEGER},
+      sql_text = #{sqlText,jdbcType=VARCHAR},
+      parallelism = #{parallelism,jdbcType=INTEGER},
+      scheduled_rule = #{scheduledRule,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByExampleWithRowbounds" parameterType="com.woophee.platform.server.master.dao.model.DefineScheduledJobExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from define_scheduled_job
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+</mapper>
