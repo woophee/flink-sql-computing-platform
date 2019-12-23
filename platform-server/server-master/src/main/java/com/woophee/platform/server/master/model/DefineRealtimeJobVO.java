@@ -1,4 +1,4 @@
-package com.woophee.platform.server.common.model;
+package com.woophee.platform.server.master.model;
 
 import com.woophee.platform.server.master.dao.model.DefineRealtimeJob;
 

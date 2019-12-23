@@ -15,8 +15,6 @@
     </parent>
 
     <properties>
-        <mybatis.version>1.3.2</mybatis.version>
-        <mysql.version>5.1.39</mysql.version>
         <swagger.version>2.9.2</swagger.version>
         <fastjson.version>1.2.62</fastjson.version>
         <commons-lang3.version>3.9</commons-lang3.version>
@@ -42,17 +40,6 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>${mybatis.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>${mysql.version}</version>
-        </dependency>
 
         <dependency>
             <groupId>io.springfox</groupId>
@@ -91,23 +78,6 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.mybatis.generator</groupId>
-                <artifactId>mybatis-generator-maven-plugin</artifactId>
-                <version>1.3.7</version>
-                <dependencies>
-                    <dependency>
-                        <groupId>mysql</groupId>
-                        <artifactId>mysql-connector-java</artifactId>
-                        <version>${mysql.version}</version>
-                    </dependency>
-                </dependencies>
-                <configuration>
-                    <configurationFile>../server-master-dao/src/main/resources/generator/generatorConfig.xml</configurationFile>
-                    <overwrite>true</overwrite>
-                    <verbose>true</verbose>
-                </configuration>
             </plugin>
         </plugins>
         <resources>

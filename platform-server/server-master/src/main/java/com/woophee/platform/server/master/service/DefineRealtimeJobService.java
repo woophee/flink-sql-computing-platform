@@ -3,7 +3,7 @@ package com.woophee.platform.server.master.service;
 import com.woophee.platform.server.master.common.Response;
 import com.woophee.platform.server.master.common.RestResult;
 import com.woophee.platform.server.master.dao.model.DefineRealtimeJob;
-import com.woophee.platform.server.common.model.DefineRealtimeJobVO;
+import com.woophee.platform.server.master.model.DefineRealtimeJobVO;
 import com.woophee.platform.server.common.model.page.PageList;
 
 public interface DefineRealtimeJobService {

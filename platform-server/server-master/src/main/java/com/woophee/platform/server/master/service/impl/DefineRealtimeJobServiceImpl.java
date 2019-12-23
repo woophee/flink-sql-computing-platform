@@ -10,7 +10,7 @@ import com.woophee.platform.server.master.dao.model.*;
 import com.woophee.platform.server.master.exception.FlinkRuntimException;
 import com.woophee.platform.server.master.exception.ServiceException;
 import com.woophee.platform.server.master.service.DefineRealtimeJobService;
-import com.woophee.platform.server.common.model.DefineRealtimeJobVO;
+import com.woophee.platform.server.master.model.DefineRealtimeJobVO;
 import com.woophee.platform.server.common.model.JobType;
 import com.woophee.platform.server.common.model.flink.FlinkSubmitRequest;
 import com.woophee.platform.server.common.model.page.PageList;

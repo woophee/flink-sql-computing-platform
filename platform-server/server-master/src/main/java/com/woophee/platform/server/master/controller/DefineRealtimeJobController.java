@@ -3,7 +3,7 @@ package com.woophee.platform.server.master.controller;
 import com.woophee.platform.server.master.common.Response;
 import com.woophee.platform.server.master.common.RestResult;
 import com.woophee.platform.server.master.dao.model.DefineRealtimeJob;
-import com.woophee.platform.server.common.model.DefineRealtimeJobVO;
+import com.woophee.platform.server.master.model.DefineRealtimeJobVO;
 import com.woophee.platform.server.common.model.page.PageList;
 import com.woophee.platform.server.master.service.DefineRealtimeJobService;
 import org.springframework.beans.factory.annotation.Autowired;
