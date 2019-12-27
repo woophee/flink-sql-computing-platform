@@ -8,5 +8,10 @@
     <artifactId>server-common</artifactId>
     <version>1.0.0</version>
 
+    <parent>
+        <groupId>com.woophee</groupId>
+        <artifactId>platform-server</artifactId>
+        <version>1.0.0</version>
+    </parent>
 
 </project>
